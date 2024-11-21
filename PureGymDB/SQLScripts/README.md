@@ -1,56 +1,20 @@
-SQL Scripts (Prefix q) - As requested in the template doc
-
-Simple scripts for different user scenarios:
-
-+   SCRIPTS    +
-
-### 1
-
-> qListActiveMembers.sql
-
-    SELECT * FROM vwActiveMembers;
-
-Purpose: Lists all active members for admin review
+Here is the SQL Scripts and their explanations
 
 
+# 1
+Adds a new admin user, assigns them the admin role, and sends a notification to a specific customer.
 
-### 2
+# 2
+Adds a generic customer with minimal required data, creating entries in both tblUser and tblCustomer.
 
-> qGetClassAttendance.sql
+# 3
+ends a notification from a specified admin to all customers in the tblCustomer table. The message and admin ID can be customised.
 
-    SELECT * FROM vwClassAttendance;
+# 4
+Lists all active customers with their membership details. Simple SELECT query with basic JOINs and a filter.
 
-Purpose: View attendance counts per class
+# 5
+Displays all classes and the number of bookings for each class. It’s a good way to understand class popularity.
 
-
-
-### 3
-
-> qSearchNotifications.sql
-
-    SELECT * FROM vwNotificationSummary WHERE notificationDate >= '2024-01-01';
-
-Purpose: Fetch recent notifications from this year
-
-
-
-### 4
-
-> qMembershipPayments.sql
-
-    SELECT * FROM vwMembershipPayments WHERE status = 'pending';
-
-Purpose: Identify pending membership payments
-
-
-
-### 5
-
-> qCheckCapacity.sql
-
-    SELECT * FROM vwCurrentCapacity;
-
-Purpose: Monitor the gym floor capacity in real time
-
-
-
+# 6
+Adds a new customer to the system, ensuring no unnecessary membership or attendance data is added at this time. Useful for cases where initial data is minimal.

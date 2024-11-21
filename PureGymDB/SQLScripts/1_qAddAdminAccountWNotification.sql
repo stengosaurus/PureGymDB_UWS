@@ -3,7 +3,7 @@ BEGIN TRANSACTION;
 BEGIN TRY
     -- Step 1: Add the Admin User
     INSERT INTO tblUser (firstName, lastName, dob, email, password, userType, createdAt)
-    VALUES ('Admin', 'Smith', '1980-07-10', 'admin.smith@example.com', 'adminsecurepassword', 'admin', GETDATE());
+    VALUES ('Admin', 'Smith', '1980-07-10', 'admin.smith@example.com', 'adminsecurepassword', 'admin', SYSDATETIME());
 
     DECLARE @adminUserID INT = SCOPE_IDENTITY(); -- Capture the new Admin UserID
 
@@ -15,7 +15,7 @@ BEGIN TRY
 
     -- Step 3: Add a Notification for CustomerID: 3
     INSERT INTO tblNotification (adminID, customerID, message, notificationDate, status)
-    VALUES (@adminID, 3, 'The gym will be closed for maintenance over the weekend, sorry for the inconvenience.', GETDATE(), 'unread');
+    VALUES (@adminID, 3, 'The gym will be closed for maintenance over the weekend, sorry for the inconvenience.', SYSDATETIME(), 'unread');
 
     -- Commit the transaction
     COMMIT TRANSACTION;
