@@ -1,0 +1,9 @@
+This is a reusable script to fetch all notifications for a particular customerID.
+
+It works by using a variable for @customerID and passing it a value for this variable when we call it.
+
+We can run the stored procedure with a specific customerID by running the following command:
+
+    EXEC spGetNotificationsForCustomer @customerID = 3
+
+This will get all messages sent to the customer with the customerID = 3.

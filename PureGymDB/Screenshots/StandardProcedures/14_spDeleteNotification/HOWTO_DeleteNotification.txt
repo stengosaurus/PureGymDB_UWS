@@ -1,0 +1,13 @@
+How to use:
+
+Step 1: Check all notifications by running the following:
+
+    SELECT * FROM tblNotifications;
+
+This will show all of the notifications currently in the database. Take note of the notificationID that matches the one you wish to erase.
+
+Step2: Delete the notification using this procedure:
+
+    EXEC spDeleteNotification @notificationID = 1; -- Replace with actual notificationID you wish to remove.
+
+This will remove that notification.

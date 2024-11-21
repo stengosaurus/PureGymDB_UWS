@@ -1,0 +1,20 @@
+
+This stored procedure allows the an admin to send a notification to a customer.
+
+We use a variable for:
+
+> admin
+> customer
+> message
+
+These dynamic values make it reusable.
+
+All we have to do is execute the script with the values we wish to pass. 
+
+Here is an example of how we can execute this stored procedure:
+
+	EXEC spSendNotification @adminID = 1, @customerID = 3, @message = 'Due to maintenance...';
+
+This script would send a notification to customer with the CustomerID = 3 from the admin account with the adminID = 1 with the following string saved to @message.
+
+It automatically sets the notification's date and initial status to 'unread'.

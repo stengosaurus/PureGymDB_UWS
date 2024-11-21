@@ -1,0 +1,30 @@
+This is a reusable script to update the status of a notification for a specific customer.
+
+This basically changes the status of the notification from 'unread' to 'read' using an update statement. It is a handy procedure that would be used in a real world scenario to let admin know when customer has viewed a notification.
+
+Example of How to Use It
+
+Step 1: Check Notifications to see the status as 'unread'.
+
+We can run the command:
+
+	SELECT * FROM tblNotifications;
+
+This will get all the notifications, their ID, customerID and status.
+
+
+Step 2: Update Notification Status to 'read'.
+
+Run the procedure to mark the notification as read:
+
+	EXEC spMarkNotificationAsRead @notificationID = 1; -- Replace with any notificationID value
+
+
+The UPDATE statement modifies the status column in the tblNotification table to 'read'.
+It ensures only notifications with 'unread' status are updated by adding a condition in the WHERE clause.
+
+
+*** THIS IS AN EXAMPLE OF UPDATING THE DB ***
+
+This would be ran from a customer interfacing with the UI for admin to see the value. It could also be designed to update UI components such as an alert icon or trigger the decrementing of the total notifications value that is a common element in social media apps such as Facebook and linked in.
+

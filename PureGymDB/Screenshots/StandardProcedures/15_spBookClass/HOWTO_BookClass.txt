@@ -1,0 +1,22 @@
+This allows a customer to book a class.
+
+We pass the value for the customerID and the classID into the procedure to execute it:
+
+    EXEC spBookClass
+        @customerID = 3;
+        @classID = 4;
+
+Like the other procedures, we update the value to whatever value we need.
+
+And we check this by running this:
+
+    SELECT *
+    FROM tblClassBooking
+    WHERE customerID = 3
+
+This would show us all of customerID = 3's currently booked classes. Freshly booked classes by default have a status of 'confirmed' to confirm the booking. We also use a dynamic date function in the script to pull real time date information. We do this by using SYSDATETIME(). We had issues with this as I was using azure data studio and not directly running microsoft sql as I am a linux user and was limited to only cross platform software. This could potentially work in microsoft using the GETDATE() function but I had no luck in linux so it was the SYSDATETIME() that seemed to work.
+
+
+*** This would be used from the customer view ***
+
+Customer would engage with the UI and click 'Book Class' this would then fire off the backend to execute the code with the customerID and classID variables coming from the frontend. Updating the db in the process and booking our user in for their class.
