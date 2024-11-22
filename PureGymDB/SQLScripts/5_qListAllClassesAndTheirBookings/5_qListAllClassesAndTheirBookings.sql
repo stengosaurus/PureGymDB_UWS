@@ -2,7 +2,7 @@
 SELECT 
     cl.classID, 
     cl.className, 
-    cl.description, 
+    MAX(CAST(cl.description AS NVARCHAR(MAX))) AS description, -- Convert description for display
     COUNT(cb.bookingID) AS TotalBookings
 FROM 
     tblClass cl
@@ -10,5 +10,4 @@ LEFT JOIN
     tblClassBooking cb ON cl.classID = cb.classID
 GROUP BY 
     cl.classID, 
-    cl.className, 
-    cl.description;
+    cl.className;

@@ -3,7 +3,7 @@ BEGIN TRANSACTION;
 BEGIN TRY
     -- Step 1: Add the Admin User
     INSERT INTO tblUser (firstName, lastName, dob, email, password, userType, createdAt)
-    VALUES ('Admin', 'Smith', '1980-07-10', 'admin.smith@example.com', 'adminsecurepassword', 'admin', SYSDATETIME());
+    VALUES ('Allan', 'Smith', '1980-07-10', 'allan.smith@example.com', 'adminsecurepassword', 'admin', SYSDATETIME());
 
     DECLARE @adminUserID INT = SCOPE_IDENTITY(); -- Capture the new Admin UserID
 

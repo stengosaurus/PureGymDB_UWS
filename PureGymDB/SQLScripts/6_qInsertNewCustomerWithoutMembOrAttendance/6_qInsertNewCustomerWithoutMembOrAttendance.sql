@@ -4,7 +4,7 @@ BEGIN TRANSACTION;
 BEGIN TRY
     -- Add the User
     INSERT INTO tblUser (firstName, lastName, dob, email, password, userType, createdAt)
-    VALUES ('John', 'Doe', '1995-05-20', 'john.doe@example.com', 'securepassword123', 'customer', SYSDATETIME());
+    VALUES ('Salad', 'Fingers', '1995-05-20', 'salad.fingers@example.com', 'securepassword123', 'customer', SYSDATETIME());
 
     -- Capture the user ID
     DECLARE @userID INT = SCOPE_IDENTITY();
