@@ -1,0 +1,2 @@
+CREATE NONCLUSTERED INDEX indx_tblCapacity_date_capacity
+ON tblCapacity (capacityDate, currentGymFloorCapacity);
